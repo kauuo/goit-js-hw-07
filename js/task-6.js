@@ -16,8 +16,6 @@ function createBoxes(event) {
   boxes.style.flexWrap = "wrap";
   boxes.style.gap = "10px";
 
-
-
   let count = parseInt(input.value);
   if (count > 0 && count < 101) {
     for (let i = 0; i < count; i++) {
