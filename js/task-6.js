@@ -18,6 +18,8 @@ function createBoxes(event) {
 
   let count = parseInt(input.value);
   if (count > 0 && count < 101) {
+    const fragment = document.createDocumentFragment(); // Створення фрагмента
+
     for (let i = 0; i < count; i++) {
       const newBox = document.createElement("div");
       newBox.classList.add("new-box");
@@ -25,10 +27,13 @@ function createBoxes(event) {
       newBox.style.height = `${30 + i * 10}px`;
       newBox.style.backgroundColor = getRandomHexColor();
 
-      boxes.appendChild(newBox);
+      fragment.appendChild(newBox); // Додавання боксу до фрагмента
     }
+
+    boxes.appendChild(fragment); // Додавання всіх боксів до DOM за одну операцію
   }
 }
+
 
 destroyBtn.addEventListener("click", destroyBoxes);
 

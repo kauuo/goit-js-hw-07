@@ -27,6 +27,8 @@ const images = [
 
 const gallery = document.querySelector(".gallery");
 
+const fragment = document.createDocumentFragment();
+
 images.forEach((image) => {
   const galleryItem = document.createElement("li");
   galleryItem.classList.add("galleryItem");
@@ -36,16 +38,18 @@ images.forEach((image) => {
   img.alt = image.alt;
   img.width = 360;
 
+  img.classList.add("img");
+  img.style.display = "block";
+  img.style.maxWidth = "100%";
+
   galleryItem.append(img);
-  gallery.append(galleryItem);
+  fragment.append(galleryItem);
 });
+
+gallery.append(fragment);
 
 gallery.style.display = "flex";
 gallery.style.flexWrap = "wrap";
 gallery.style.columnGap = "24px";
 gallery.style.rowGap = "48px";
 gallery.style.listStyle = "none";
-
-img.classList.add("img");
-img.style.display = "block";
-img.style.maxWidth = "100%";
